@@ -7,19 +7,55 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <title>Task List</title>
 
-<body class="grey darken-3">
-  <div class="container">
+  <style>
+    .fa-remove {
+      font-size: 18px;
+    }
+
+    .delete {
+      cursor: pointer;
+    }
+
+    .success {
+      color: beige;
+      background-color: green;
+    }
+
+    .danger {
+      color: beige;
+      background-color: red;
+    }
+
+    .primary {
+      color: beige;
+      background-color: skyblue;
+    }
+
+    .inactive {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class=" container">
     <div class="row">
-      <div class="col s12">
+      <div class="col-md-10 mx-auto">
         <div id="main" class="card">
           <div class="card-content">
             <span class="card-title">Task List</span>
+            <div id="alert" class="success p-2 inactive">skdjafajkdf</div>
             <div class="row">
               <form id="task-form">
                 <div class="input-field col s12">
@@ -36,7 +72,9 @@
               <input type="text" name="filter" id="filter">
               <label for="filter">Filter Tasks</label>
             </div>
-            <ul class="collection"></ul>
+            <ul class="collection">
+
+            </ul>
             <a href="#" class="clear-task btn black">Clear Tasks</a>
           </div>
         </div>
@@ -45,12 +83,27 @@
   </div>
 
 
+  <template id="list-item-template">
+    <li class="collection-item">
+      <div class="row mb-0">
+        <div class="col-10">
+          <label class="list-item-label w-100">
+            <input type="checkbox" name="tasks" id="tasks-checkbox">
+            <span class="list-task text-lead w-100"></span>
+          </label>
+        </div>
+        <div class="col-2">
+          <span class="ps-5">
+            <a class="px-2 delete"><i class="fa fa-remove"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+  </template>
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
